@@ -4,7 +4,7 @@
 Summary:	Perl binding for the vte widget
 Name:		perl-%module
 Version:	0.08
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL or Artistic
 Group:		Development/GNOME and GTK+
 Source0:	%module-%version.tar.bz2
