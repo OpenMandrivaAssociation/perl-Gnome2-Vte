@@ -13,7 +13,6 @@ BuildRequires:	vte-devel => 0.11.10, perl-Glib => 1.00, perl-Gtk2 XFree86-Xvfb
 BuildRequires:	perl-devel perl-ExtUtils-Depends perl-ExtUtils-PkgConfig
 Requires:	perl-Glib >= 1.00
 Conflicts:	drakxtools < 9.1-15mdk
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Patch: Gnome2-Vte-0.05-drop-test--get_has_selection--which-should-return-false.patch
 
 %description
