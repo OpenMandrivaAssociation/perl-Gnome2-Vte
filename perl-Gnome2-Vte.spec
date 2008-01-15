@@ -37,7 +37,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 %check
 XDISPLAY=$(i=2; while [ -f /tmp/.X$i-lock ]; do i=$(($i+1)); done; echo $i)
 Xvfb :$XDISPLAY & xvfb_pid=$!
-#DISPLAY=:$XDISPLAY %make test
+DISPLAY=:$XDISPLAY %make test
 kill $xvfb_pid ||:
 
 %install
