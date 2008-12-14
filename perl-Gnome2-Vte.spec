@@ -3,7 +3,7 @@
 
 Name:		perl-%module
 Version:	0.09
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Perl binding for the vte widget
 License:	GPL or Artistic
 Group:		Development/GNOME and GTK+
@@ -12,7 +12,7 @@ Source:         http://www.cpan.org/modules/by-module/Gnome2/%{module}-%{version
 BuildRequires:	vte-devel => 0.11.10
 BuildRequires:	perl-Glib => 1.00
 BuildRequires:	perl-Gtk2
-BuildRequires:	XFree86-Xvfb
+BuildRequires:	x11-server-xvfb
 BuildRequires:	perl-devel
 BuildRequires:	perl-ExtUtils-Depends
 BuildRequires:	perl-ExtUtils-PkgConfig
@@ -36,10 +36,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 %make OPTIMIZE="$RPM_OPT_FLAGS"
 
 %check
-XDISPLAY=$(i=2; while [ -f /tmp/.X$i-lock ]; do i=$(($i+1)); done; echo $i)
-Xvfb :$XDISPLAY & xvfb_pid=$!
-DISPLAY=:$XDISPLAY %make test
-kill $xvfb_pid ||:
+xvfb-run %make test
 
 %install
 rm -rf %{buildroot}
