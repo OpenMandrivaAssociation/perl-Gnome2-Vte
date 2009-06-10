@@ -3,7 +3,7 @@
 
 Name:		perl-%module
 Version:	0.09
-Release:	%mkrel 3
+Release:	%mkrel 4
 Summary:	Perl binding for the vte widget
 License:	GPL or Artistic
 Group:		Development/GNOME and GTK+
