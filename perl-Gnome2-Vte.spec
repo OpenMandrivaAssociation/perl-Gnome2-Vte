@@ -1,24 +1,27 @@
-%define	module	Gnome2-Vte
-%define	fmodule	Gnome2/Vte
+%define	upstream_name	 Gnome2-Vte
+%define	upstream_version 0.09
 
-Name:		perl-%module
-Version:	0.09
-Release:	%mkrel 4
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Perl binding for the vte widget
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/GNOME and GTK+
-URL:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/Gnome2/%{module}-%{version}.tar.gz
-BuildRequires:	vte-devel => 0.11.10
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Gnome2/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires:	perl-Glib => 1.00
 BuildRequires:	perl-Gtk2
-BuildRequires:	x11-server-xvfb
-BuildRequires:	perl-devel
 BuildRequires:	perl-ExtUtils-Depends
 BuildRequires:	perl-ExtUtils-PkgConfig
-Requires:	perl-Glib >= 1.00
+BuildRequires:	perl-devel
+BuildRequires:	vte-devel => 0.11.10
+BuildRequires:	x11-server-xvfb
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
+
 Conflicts:	drakxtools < 9.1-15mdk
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+Requires:	perl-Glib >= 1.00
 
 %description
 This module provides perl access to vte libraries.
@@ -26,7 +29,7 @@ This module provides perl access to vte libraries.
 VTE is an experimental terminal emulator widget for use with GTK+ 2.:.
 
 %prep
-%setup -q -n %module-%version
+%setup -q -n %{upstream_name}-%{upstream_version}
 find -type d -name CVS | rm -rf 
 
 %build
@@ -49,8 +52,5 @@ rm -rf %{buildroot}
 %defattr(-, root, root)
 %doc LICENSE 
 %{_mandir}/*/*
-%{perl_vendorarch}/%fmodule
-%{perl_vendorarch}/%fmodule.pm
-%{perl_vendorarch}/auto/%fmodule
-
-
+%{perl_vendorarch}/Gnome2/*
+%{perl_vendorarch}/auto/Gnome2/*
