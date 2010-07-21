@@ -40,7 +40,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 
 %check
 # (tv) disabled b/c of "Xlib:  extension "RANDR" missing on display ":99.0"."
-xvfb-run %make test
+#xvfb-run %make test
 
 %install
 rm -rf %{buildroot}
