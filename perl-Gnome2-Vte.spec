@@ -39,6 +39,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 %make OPTIMIZE="$RPM_OPT_FLAGS"
 
 %check
+# (tv) disabled b/c of "Xlib:  extension "RANDR" missing on display ":99.0"."
 xvfb-run %make test
 
 %install
