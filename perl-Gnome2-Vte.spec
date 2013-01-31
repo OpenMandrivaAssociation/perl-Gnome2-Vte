@@ -1,15 +1,15 @@
-%define	upstream_name	 Gnome2-Vte
-%define	upstream_version 0.09
+%define	upstream_name Gnome2-Vte
+%define	upstream_version 0.10
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:	8
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	1
 
 Summary:	Perl binding for the vte widget
 License:	GPL+ or Artistic
 Group:		Development/GNOME and GTK+
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Gnome2/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:		http://www.cpan.org/modules/by-module/Gnome2/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-Glib => 1.00
 BuildRequires:	perl-Gtk2
@@ -18,7 +18,6 @@ BuildRequires:	perl-ExtUtils-PkgConfig
 BuildRequires:	perl-devel
 BuildRequires:	vte-devel => 0.11.10
 BuildRequires:	x11-server-xvfb
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 Conflicts:	drakxtools < 9.1-15mdk
 Requires:	perl-Glib >= 1.00
@@ -33,7 +32,7 @@ VTE is an experimental terminal emulator widget for use with GTK+ 2.:.
 find -type d -name CVS | rm -rf 
 
 %build
-RPM_OPT_FLAGS="$RPM_OPT_FLAGS -Os -s"
+RPM_OPT_FLAGS="%{optflags} -Os -s"
 export GTK2_PERL_CFLAGS="$RPM_OPT_FLAGS"
 perl Makefile.PL INSTALLDIRS=vendor
 %make OPTIMIZE="$RPM_OPT_FLAGS"
@@ -43,14 +42,9 @@ perl Makefile.PL INSTALLDIRS=vendor
 #xvfb-run %make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-, root, root)
 %doc LICENSE 
 %{_mandir}/*/*
 %{perl_vendorarch}/Gnome2/*
@@ -58,7 +52,7 @@ rm -rf %{buildroot}
 
 
 %changelog
-* Wed Jan 25 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.90.0-7
+* Wed Jan 25 2012 Per Ã˜yvind Karlsen <peroyvind@mandriva.org> 0.90.0-7
 + Revision: 768358
 - svn commit -m mass rebuild of perl extension against perl 5.14.2
 
@@ -82,15 +76,15 @@ rm -rf %{buildroot}
 + Revision: 556671
 - disable testsuite b/c of "Xlib:  extension "RANDR" missing on display ":99.0"."
 
-* Mon Aug 03 2009 Jérôme Quelin <jquelin@mandriva.org> 0.90.0-1mdv2010.1
+* Mon Aug 03 2009 JÃ©rÃ´me Quelin <jquelin@mandriva.org> 0.90.0-1mdv2010.1
 + Revision: 408413
 - rebuild using %%perl_convert_version
 
-* Wed Jun 10 2009 Götz Waschk <waschk@mandriva.org> 0.09-4mdv2010.0
+* Wed Jun 10 2009 GÃ¶tz Waschk <waschk@mandriva.org> 0.09-4mdv2010.0
 + Revision: 384702
 - rebuild for new vte
 
-* Tue Jun 02 2009 Götz Waschk <waschk@mandriva.org> 0.09-3mdv2010.0
+* Tue Jun 02 2009 GÃ¶tz Waschk <waschk@mandriva.org> 0.09-3mdv2010.0
 + Revision: 382209
 - rebuild for new libvte
 
@@ -152,14 +146,14 @@ rm -rf %{buildroot}
 * Tue Jan 31 2006 Thierry Vignaud <tvignaud@mandriva.com> 0.05-1mdk
 - new release
 
-* Fri Dec 23 2005 Nicolas L�cureuil <neoclust@mandriva.org> 0.04-4mdk
+* Fri Dec 23 2005 Nicolas Lécureuil <neoclust@mandriva.org> 0.04-4mdk
 - Revert previous Buildrequires
 
-* Fri Dec 23 2005 Nicolas L�cureuil <neoclust@mandriva.org> 0.04-3mdk
+* Fri Dec 23 2005 Nicolas Lécureuil <neoclust@mandriva.org> 0.04-3mdk
 - Fix BuildRequires
 - use mkrel
 
-* Mon Nov 15 2004 G�tz Waschk <waschk@linux-mandrake.com> 0.04-2mdk
+* Mon Nov 15 2004 Götz Waschk <waschk@linux-mandrake.com> 0.04-2mdk
 - rebuild for new perl
 
 * Tue Aug 10 2004 Thierry Vignaud <tvignaud@mandrakesoft.com> 0.04-1mdk
@@ -170,7 +164,7 @@ rm -rf %{buildroot}
 - new release
 - fix build
 
-* Mon Apr 19 2004 Per �yvind Karlsen <peroyvind@linux-mandrake.com> 0.02-2mdk
+* Mon Apr 19 2004 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 0.02-2mdk
 - fix build when there's no xdisplay available
 - use %%make macro
 - spec cosmetics
