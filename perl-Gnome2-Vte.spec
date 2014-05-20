@@ -1,10 +1,11 @@
 %define	modname	Gnome2-Vte
-%define	modver	0.10
+%define modver 0.11
 
 Summary:	Perl binding for the vte widget
+
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	6
+Release:	1
 License:	GPLv2+ or Artistic
 Group:		Development/GNOME and GTK+
 Url:		http://search.cpan.org/dist/%{modname}
@@ -28,9 +29,9 @@ find -type d -name CVS | rm -rf
 
 %build
 RPM_OPT_FLAGS="%{optflags} -Os -s"
-export GTK2_PERL_CFLAGS="$RPM_OPT_FLAGS"
+export GTK2_PERL_CFLAGS="%{optflags}"
 perl Makefile.PL INSTALLDIRS=vendor
-%make OPTIMIZE="$RPM_OPT_FLAGS"
+%make OPTIMIZE="%{optflags}"
 
 %check
 # (tv) disabled b/c of "Xlib:	extension "RANDR" missing on display ":99.0"."
@@ -44,4 +45,5 @@ perl Makefile.PL INSTALLDIRS=vendor
 %{perl_vendorarch}/Gnome2/*
 %{perl_vendorarch}/auto/Gnome2/*
 %{_mandir}/man3/*
+
 
