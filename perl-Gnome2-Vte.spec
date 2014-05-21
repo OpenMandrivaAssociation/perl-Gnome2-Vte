@@ -10,6 +10,7 @@ License:	GPLv2+ or Artistic
 Group:		Development/GNOME and GTK+
 Url:		http://search.cpan.org/dist/%{modname}
 Source0:	http://www.cpan.org/modules/by-module/Gnome2/%{modname}-%{modver}.tar.gz
+Source100: %{name}.rpmlintrc
 BuildRequires:	perl-Glib => 1.00
 BuildRequires:	perl-Gtk2
 BuildRequires:	perl-ExtUtils-Depends
