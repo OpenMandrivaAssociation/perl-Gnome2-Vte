@@ -25,7 +25,7 @@ This module provides perl access to vte libraries.
 VTE is an experimental terminal emulator widget for use with GTK+ 2.:.
 
 %prep
-%setup -qn %{modname}-%{modver}
+%autosetup -p1 -n %{modname}-%{modver}
 find -type d -name CVS | rm -rf 
 
 %build
@@ -39,12 +39,12 @@ perl Makefile.PL INSTALLDIRS=vendor
 #xvfb-run %make test
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc LICENSE 
 %{perl_vendorarch}/Gnome2/*
 %{perl_vendorarch}/auto/Gnome2/*
-%{_mandir}/man3/*
+%doc %{_mandir}/man3/*
 
 
