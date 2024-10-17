@@ -8,7 +8,7 @@ Version:	%perl_convert_version %{modver}
 Release:	9
 License:	GPLv2+ or Artistic
 Group:		Development/GNOME and GTK+
-Url:		http://search.cpan.org/dist/%{modname}
+Url:		https://search.cpan.org/dist/%{modname}
 Source0:	http://www.cpan.org/modules/by-module/Gnome2/%{modname}-%{modver}.tar.gz
 Source100: %{name}.rpmlintrc
 BuildRequires:	perl-Glib => 1.00
