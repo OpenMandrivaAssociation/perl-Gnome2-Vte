@@ -11,6 +11,7 @@ Group:		Development/GNOME and GTK+
 Url:		https://search.cpan.org/dist/%{modname}
 Source0:	http://www.cpan.org/modules/by-module/Gnome2/%{modname}-%{modver}.tar.gz
 Source100: %{name}.rpmlintrc
+BuildRequires:	make
 BuildRequires:	perl-Glib => 1.00
 BuildRequires:	perl-Gtk2
 BuildRequires:	perl-ExtUtils-Depends
