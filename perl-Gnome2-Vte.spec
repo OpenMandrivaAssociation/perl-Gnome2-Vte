@@ -5,7 +5,7 @@ Summary:	Perl binding for the vte widget
 
 Name:		perl-%{modname}
 Version:	%perl_convert_version %{modver}
-Release:	9
+Release:	10
 License:	GPLv2+ or Artistic
 Group:		Development/GNOME and GTK+
 Url:		https://search.cpan.org/dist/%{modname}
