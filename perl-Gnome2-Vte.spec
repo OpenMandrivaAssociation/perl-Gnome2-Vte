@@ -1,15 +1,13 @@
 %define	modname	Gnome2-Vte
-%define modver 0.11
-
 Summary:	Perl binding for the vte widget
 
 Name:		perl-%{modname}
-Version:	%perl_convert_version %{modver}
-Release:	11
+Version:	0.11
+Release:	12
 License:	GPLv2+ or Artistic
 Group:		Development/GNOME and GTK+
-Url:		https://search.cpan.org/dist/%{modname}
-Source0:	http://www.cpan.org/modules/by-module/Gnome2/%{modname}-%{modver}.tar.gz
+Url:		https://metacpan.org/dist/%{modname}
+Source0:	http://www.cpan.org/modules/by-module/Gnome2/%{modname}-%{version}.tar.gz
 Source100: %{name}.rpmlintrc
 BuildRequires:	make
 BuildRequires:	perl-Glib => 1.00
@@ -26,7 +24,7 @@ This module provides perl access to vte libraries.
 VTE is an experimental terminal emulator widget for use with GTK+ 2.:.
 
 %prep
-%autosetup -p1 -n %{modname}-%{modver}
+%autosetup -p1 -n %{modname}-%{version}
 find -type d -name CVS | rm -rf 
 
 %build
